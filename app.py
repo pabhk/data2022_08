@@ -46,4 +46,13 @@ st.dataframe(df)
 
 df['평점'] = df['평점'].astype(int)
 dfg = df.groupby('영화명').mean()
-dfg.sort_values('평점').plot(kind = 'bar')
+
+st.bar_chart(dfg, width=500, height=500)
+
+option = st.selectbox(
+     '영화를 선택하세요.',
+     df['영화명'].unique())
+
+st.write('You selected:', option)
+df2 = df[df['영화명']==option]
+st.dataframe(df2)
