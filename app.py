@@ -46,5 +46,4 @@ st.dataframe(df)
 
 df['평점'] = df['평점'].astype(int)
 dfg = df.groupby('영화명').mean()
-dfg.sort_values('평점').plot(kind = 'barh')
-plt.show()
+dfg.sort_values('평점').plot(kind = 'bar')
